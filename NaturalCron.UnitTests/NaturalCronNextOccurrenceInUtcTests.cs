@@ -77,6 +77,7 @@ public class NaturalCronNextOccurrenceInUtcTests
 
         nextOccurrences.Should().HaveCount(expectedDateTimeUtc.Count);
         nextOccurrences.Should().Equal(expectedDateTimeUtc);
+        nextOccurrences.Should().OnlyContain(occurrence => occurrence.Kind == DateTimeKind.Utc);
         
         stopwatch.Stop();
         testOutputHelper.WriteLine($"Elapsed time: {stopwatch.ElapsedMilliseconds} ms");
